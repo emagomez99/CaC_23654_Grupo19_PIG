@@ -1,3 +1,9 @@
 __pycache__/
 CaC_23654_Grupo19_PIG/__pycache__/*
+*.bat
+__pycache__
+cache
+db-definition
+.vscode
+.env
 
