@@ -11,3 +11,4 @@ venv
 env.bak
 venv.bak
 Pipfile
+db.sqlite3
