@@ -1,0 +1,16 @@
+*{
+    font-family: 'Roboto Mono', monospace;
+}
+
+header{
+    background-color: lightgreen
+}
+
+footer{
+    background-color: lightskyblue
+}
+
+.messages{ 
+    border: 3px solid red;
+    padding: 25px;
+} /* no anda, 01:29 clase 17: forms2 */

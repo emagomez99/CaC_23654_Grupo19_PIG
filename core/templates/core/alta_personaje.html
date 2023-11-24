@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+{% load static%}
+
+{% block title%}{% filter upper %}
+    alta personaje
+{% endfilter %}{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'core/css/alta_producto.css' %}">
+{% endblock %}
+
+
+{% block section_title %}{% filter upper %}
+    registro de personajes
+{% endfilter %}{% endblock %}
+
+{% block content %}
+    <h3>Datos del personaje</h3>
+    <form method='post' action="{% url 'alta_personaje' %}">
+        {% csrf_token %}
+        {{ alta_personaje_form.as_p }}
+        <input type="submit">        
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+
+{% load static%}
+
+{% block extra_css %} <link rel="stylesheet" href="{% static 'core/css/contacto.css' %}"> {% endblock %}
+
+{% block title%}{% filter upper %}
+    contacto
+{% endfilter %}{% endblock %}
+
+{% block section_title %}{% filter upper %}
+    contacto
+{% endfilter %}{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url 'contacto' %}">
+        {% csrf_token %}
+        {{ contacto_form.as_p }}
+        <input type="submit">
+    </form>
+{% endblock %}

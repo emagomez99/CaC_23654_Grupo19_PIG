@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Ocean - {% block title %}{% endblock %}</title> <!-- filtro aplicado -->
+    <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@600;700&display=swap" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    {% if messages %}
+        <ul class='messages'>
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <header>
+        <h1>🌊Store Ocean🌊</h1>
+        <h2> {% block section_title %} {% endblock %}</h2>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="">Gestionar productos</a></li>
+            <li><a href="{% url 'contacto' %}">Contactanos</a></li>
+            <li><a href="{% url 'alta_producto' %}">Dar de alta una figura</a></li>
+            <li><a href="{% url 'alta_personaje' %}">Registrar personaje</a></li>
+            <li><a href="{% url 'alta_compañia' %}">Registrar empresa</a></li>
+            <li><a href="{% url 'listado_productos' %}">Listado de productos</a></li>
+            <li><a href="{% url 'listado_personajes' %}">Listado de personajes</a></li>
+            <li><a href="{% url 'listado_compañias' %}">Listado de empresas</a></li>
+        </ul>  
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Proyecto Final Integrador</p>
+        <p>GitHub: @emagomez99 @cara0000</p>
+    </footer>
+</body>
+</html>

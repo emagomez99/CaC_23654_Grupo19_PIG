@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% load static%}
+
+{% block title%}{% filter upper %}
+    listado empresas
+{% endfilter %}{% endblock %}
+
+{% block section_title %}{% filter upper %}
+    listado de empresas (por ID)
+{% endfilter %}{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for empresa in listado_emp %}
+            <li>
+                <p>ID: {{ empresa.id }}</p>
+                <p>Nombre: {{ empresa.nombre | title }}</p>
+                <p>Ubicación: {{ empresa.ubicacion | title }}</p>
+            </li>
+        {% empty %}
+            <p>No hay productos registrados</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

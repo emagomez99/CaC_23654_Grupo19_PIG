@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+
+{% load static%}
+
+{% block title%}{% filter upper %}
+    listado productos
+{% endfilter %}{% endblock %}
+
+{% block section_title %}{% filter upper %}
+    listado de productos (por ID)
+{% endfilter %}{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for producto in listado_productos %}
+            <li>
+                <p>Denominación: {{ producto.denominacion | title }}</p>
+                <p>Personaje: {{ producto.personaje | title }}</p>
+                <p>Coleccion: {{ producto.coleccion | title }}</p>
+                <p>Compañía: {{ producto.compañia | title }}</p>
+                <p>Precio: {{ producto.precio }}</p>
+                <!-- <p>Fecha de salida: {{ producto.fecha_salida }}</p> -->
+                <!-- <p>Imagen representativa: {{ producto.imagen }}</p> -->
+            </li>
+        {% empty %}
+            <p>No hay productos registrados</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

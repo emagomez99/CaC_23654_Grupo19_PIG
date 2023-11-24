@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+{% load static%}
+
+{% block title%}{% filter upper %}
+    alta de producto
+{% endfilter %}{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'core/css/alta_producto.css' %}">
+{% endblock %}
+
+
+{% block section_title %}{% filter upper %}
+    alta de producto
+{% endfilter %}{% endblock %}
+
+{% block content %}
+    <h3>Datos de la figura</h3>
+    <form method='post' action="{% url 'alta_producto' %}">
+        {% csrf_token %}
+        {{ alta_producto_form.as_p }}
+        <input type="submit">        
+    </form>
+{% endblock %}

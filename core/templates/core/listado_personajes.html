@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% load static%}
+
+{% block title%}{% filter upper %}
+    listado personajes
+{% endfilter %}{% endblock %}
+
+{% block section_title %}{% filter upper %}
+    listado de personajes (por id)
+{% endfilter %}{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for personaje in listado_pjs %}
+            <li>
+                <p>ID: {{ personaje.id }}</p>
+                <p>Nombre: {{ personaje.nombre | title }}</p>
+                <p>Anime: {{ personaje.anime | title }}</p>
+            </li>
+        {% empty %}
+            <p>No hay productos registrados</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
