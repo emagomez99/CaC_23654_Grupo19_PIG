@@ -1,0 +1,14 @@
+__pycache__/
+__pycache__
+cache
+*.bat
+db-definition
+.vscode
+.env
+env
+venv
+.venv/
+env.bak
+venv.bak
+Pipfile
+db.sqlite3
