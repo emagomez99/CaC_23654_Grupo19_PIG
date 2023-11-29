@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse, Http404
 from .forms import ContactoForm, AltaProductoForm, AltaPersonajeForm, AltaEmpresaForm
 from django.urls import reverse
 from django.contrib import messages
@@ -105,6 +105,20 @@ def listar_productos(request):
     }
 
     return render(request, 'core/listado_productos.html',context)
+
+@login_required
+def detalle_personaje(request, id):
+    try:
+        personaje = get_object_or_404(Personaje, id=id)
+    except Http404:
+        # Puedes personalizar esta respuesta según tus necesidades
+        return render(request, 'core/personaje_no_encontrado.html')
+
+    context = {
+        'personaje': personaje,
+    }
+
+    return render(request, 'core/detalle_personaje.html', context)
 
 @login_required
 def listar_personajes(request):
