@@ -12,6 +12,7 @@
     contacto
 {% endfilter %}{% endblock %}
 
+<!-- FORMULARIO ASOCIADO A UN TEMPLATE -->
 {% block content %}
     <form method="post" action="{% url 'contacto' %}">
         {% csrf_token %}
