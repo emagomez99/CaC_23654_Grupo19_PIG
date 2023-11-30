@@ -107,27 +107,16 @@ def listar_productos(request):
     return render(request, 'core/listado_productos.html',context)
 
 @login_required
-def detalle_personaje(request, id):
+def listar_personajes(request, id=None):
     try:
-        personaje = get_object_or_404(Personaje, id=id)
+        if id is not None:
+            personaje = get_object_or_404(Personaje, id=id)
+            context = {'listado_pjs': [personaje], 'cant_personajes': 1}
+        else:
+            listado = Personaje.objects.all().order_by('id')
+            context = {'listado_pjs': listado, 'cant_personajes': len(listado)}
     except Http404:
-        # Puedes personalizar esta respuesta según tus necesidades
-        return render(request, 'core/personaje_no_encontrado.html')
-
-    context = {
-        'personaje': personaje,
-    }
-
-    return render(request, 'core/detalle_personaje.html', context)
-
-@login_required
-def listar_personajes(request):
-    listado= Personaje.objects.all().order_by('id')
-
-    context= {
-        'listado_pjs': listado,
-        'cant_personajes': len(listado),
-    }
+        context = {'listado_pjs': [], 'cant_personajes': 0}
 
     return render(request, 'core/listado_personajes.html', context)
 

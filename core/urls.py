@@ -14,5 +14,5 @@ urlpatterns = [
     path('listado_productos', views.listar_productos, name='listado_productos'), #cambiar el primero a productos/listado
     path('personajes/listado', views.listar_personajes, name='listado_personajes'),
     path('compañias/listado', views.listar_empresas, name='listado_compañias'),
-    path('personajes/listado/<int:id>/', views.detalle_personaje, name='detalle_personaje'),
+    path('personajes/listado/<int:id>/', views.listar_personajes, name='listar_personajes'),
 ]
