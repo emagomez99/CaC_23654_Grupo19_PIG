@@ -52,7 +52,7 @@ Sistema de gestión de figuritas.
   >```
 5. Instalar las dependencias
 >```bash
->
+>pip install -r requirements.txt
 >```
 6. Crear un archivo .env en la carpeta raíz
 >```bash
