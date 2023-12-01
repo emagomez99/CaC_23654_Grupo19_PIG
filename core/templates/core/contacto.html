@@ -16,7 +16,7 @@ contacto
 <!-- FORMULARIO ASOCIADO A UN TEMPLATE -->
 {% block content %}
 <div class="container">
-    <h3 class="text-center">Datos de la Figura:</h3>
+    <h3 class="text-center">Formulario de contacto:</h3>
     <form method="post" action="{% url 'contacto' %}" class="mx-auto w-50">
         {% csrf_token %}
         {{ contacto_form.as_p }}
