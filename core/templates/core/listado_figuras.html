@@ -3,11 +3,11 @@
 {% load static%}
 
 {% block title%}{% filter upper %}
-listado personajes
+Listado figuras
 {% endfilter %}{% endblock %}
 
 {% block section_title %}{% filter upper %}
-listado de personajes (por id)
+Listado de Figuras (por ID)
 {% endfilter %}{% endblock %}
 
 {% block content %}
@@ -15,16 +15,26 @@ listado de personajes (por id)
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Anime</th>
+            <th scope="col">Denominación</th>
+            <th scope="col">Personaje</th>
+            <th scope="col">Coleccion</th>
+            <th scope="col">Compañía</th>
+            <th scope="col">Precio</th>
+            <!--  <th scope="col">Fecha de salida</th> -->
+            <!-- <th scope="col">Imagen representativa</th> -->
         </tr>
     </thead>
     <tbody>
-        {% for personaje in listado_pjs %}
+        {% for figura in listado_figuras %}
         <tr>
-            <td>{{ personaje.id }}</td>
-            <td>{{ personaje.nombre | title }}</td>
-            <td>{{ personaje.anime | title }}</td>
+            <td>{{ figura.id }}</td>
+            <td>{{ figura.denominacion | title }}</td>
+            <td>{{ figura.personaje | title }}</td>
+            <td>{{ figura.coleccion | title }}</td>
+            <td>{{ figura.compañia | title }}</td>
+            <td>{{ figura.precio | title }}</td>
+            <!-- <td>{{ figura.fecha_salida | title }}</td> -->
+            <!-- <td>{{ figura.imagen | title }}</td> -->
             <td>
                 <!-- Botón de Editar -->
                 <a href="" class="btn btn-primary btn-sm">Editar</a>
@@ -40,7 +50,7 @@ listado de personajes (por id)
         </tr>
         {% empty %}
         <tr>
-            <td>No hay productos registrados</td>
+            <td>No hay figuras registradas</td>
         </tr>
         {% endfor %}
     </tbody>

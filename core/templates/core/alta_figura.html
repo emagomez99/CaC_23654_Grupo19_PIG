@@ -1,23 +1,24 @@
 {% extends "core/base.html" %}
-
 {% load static%}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'core/css/contacto.css' %}"> {% endblock %}
-
 {% block title%}{% filter upper %}
-contacto
+alta de figura
 {% endfilter %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/alta_figura.css' %}">
+{% endblock %}
+
 
 {% block section_title %}{% filter upper %}
-contacto
+Alta de figura
 {% endfilter %}{% endblock %}
 
-<!-- FORMULARIO ASOCIADO A UN TEMPLATE -->
 {% block content %}
-<form method="post" action="{% url 'contacto' %}">
+<h3>Datos de la Figura</h3>
+<form method='post' action="{% url 'alta_figura' %}">
     {% csrf_token %}
-    {{ contacto_form.as_p }}
+    {{ alta_figura_form.as_p }}
     <input type="submit">
 </form>
 {% endblock %}

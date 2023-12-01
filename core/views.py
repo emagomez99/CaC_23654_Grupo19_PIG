@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
-from .forms import ContactoForm, AltaProductoForm, AltaPersonajeForm, AltaEmpresaForm
+from .forms import ContactoForm, AltaProductoForm, AltaPersonajeForm, AltaCompañiaForm
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -36,7 +36,7 @@ def contacto(request):
 class AltaProductoView(CreateView):
     model = Figura
     form_class = AltaProductoForm
-    template_name = 'core/alta_producto.html'
+    template_name = 'core/alta_figura.html'
 
     def form_valid(self, form):
         messages.info(self.request, 'Producto dado de alta correctamente')
@@ -47,7 +47,7 @@ class AltaProductoView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['alta_producto_form'] = self.form_class()
+        context['alta_figura_form'] = self.form_class()
         return context
 
 @permission_required('core.add_personaje', login_url='/login/', raise_exception=True)
@@ -72,25 +72,25 @@ def alta_personaje(request):
     return render(request, 'core/alta_personaje.html', context)
 
 @permission_required('core.add_personaje', login_url='/login/', raise_exception=True)
-def alta_empresa(request):
+def alta_compañia(request):
     context= {}
-    alta_form = AltaEmpresaForm(request.POST)
+    alta_form = AltaCompañiaForm(request.POST)
 
     if alta_form.is_valid():
-        nueva_empresa= Compañia(
+        nueva_compañia= Compañia(
             nombre= alta_form.cleaned_data['nombre'],
             ubicacion= alta_form.cleaned_data['ubicacion']
         )
-        nueva_empresa.save()
+        nueva_compañia.save()
         messages.info(request, 'Compañia registrada correctamente')
         return redirect(reverse('index'))
     
     else:
-        alta_form= AltaEmpresaForm()
+        alta_form= AltaCompañiaForm()
     
-    context['alta_empresa_form'] = AltaEmpresaForm
+    context['alta_compañia_form'] = AltaCompañiaForm
 
-    return render(request, 'core/alta_empresa.html', context)
+    return render(request, 'core/alta_compañia.html', context)
 
 #READ----------------------------------------------------------------------------------------------------------------------------------
 #VISTA PARAMETRIZADA ------------------------------------------------------------------------------------------------------------------
@@ -100,11 +100,11 @@ def listar_productos(request):
     listado = Figura.objects.all().order_by('id')
 
     context= {
-        'listado_productos': listado,
+        'listado_figuras': listado,
         'cant_productos': len(listado),
     }
 
-    return render(request, 'core/listado_productos.html',context)
+    return render(request, 'core/listado_figuras.html',context)
 
 @login_required
 def listar_personajes(request, id=None):
@@ -121,12 +121,12 @@ def listar_personajes(request, id=None):
     return render(request, 'core/listado_personajes.html', context)
 
 @login_required
-def listar_empresas(request):
+def listar_compañias(request):
     listado= Compañia.objects.all().order_by('id')
 
     context= {
-        'listado_emp': listado,
-        'cant_empresas': len(listado)
+        'listado_compañias': listado,
+        'cant_compañias': len(listado)
     }
 
     return render(request, 'core/listado_compañias.html', context)

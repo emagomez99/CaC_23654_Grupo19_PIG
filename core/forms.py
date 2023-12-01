@@ -53,9 +53,9 @@ class AltaProductoForm(forms.ModelForm): #alta de figura
 
 
 class AltaPersonajeForm(forms.Form):
-    nombre= forms.CharField(label='Nombre',widget=BlueBackgroundTextInput,required= True)
-    anime= forms.CharField(label='Anime/Serie',widget=BlueBackgroundTextInput,required= True)
+    nombre= forms.CharField(label='Nombre',widget=forms.TextInput(attrs={'class': 'form-control'}),required= True)
+    anime= forms.CharField(label='Anime/Serie',widget=forms.TextInput(attrs={'class': 'form-control'}),required= True)
 
-class AltaEmpresaForm(forms.Form):
-    nombre= forms.CharField(label='Nombre',widget=BlueBackgroundTextInput,required= True)
-    ubicacion= forms.CharField(label='Pais/región',widget=BlueBackgroundTextInput,required= True)
+class AltaCompañiaForm(forms.Form):
+    nombre = forms.CharField(label='Nombre', widget=forms.TextInput(attrs={'class': 'form-control'}), required=True)
+    ubicacion= forms.CharField(label='Pais/región',widget=forms.TextInput(attrs={'class': 'form-control'}),required= True)
