@@ -39,7 +39,7 @@ class ContactoForm(forms.Form): #1:09 21 models 1
     
 
 # FORMULARIO ASOCIADO A UN MODELO
-class AltaProductoForm(forms.ModelForm): #alta de figura
+class AltaFiguraForm(forms.ModelForm): #alta de figura
     denominacion= forms.CharField(label='Denominacion',widget=GreenBackgroundTextInput,required= True)
     personaje = forms.ModelChoiceField(queryset=Personaje.objects.all(), empty_label="Seleccione un Personaje") #ChatGPT - revisar pa entender
     coleccion= forms.CharField(label='Coleccion',widget=GreenBackgroundTextInput,required= True)

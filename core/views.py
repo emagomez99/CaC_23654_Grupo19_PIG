@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404
-from .forms import ContactoForm, AltaProductoForm, AltaPersonajeForm, AltaCompañiaForm
+from .forms import ContactoForm, AltaFiguraForm, AltaPersonajeForm, AltaCompañiaForm
 from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -33,9 +33,9 @@ def contacto(request):
     return render(request, 'core/contacto.html', context)
 
 # FORMULARIO USADO EN VISTA BASADA EN CLASES ------------------------------------------------------------------
-class AltaProductoView(CreateView):
+class AltaFiguraView(CreateView):
     model = Figura
-    form_class = AltaProductoForm
+    form_class = AltaFiguraForm
     template_name = 'core/alta_figura.html'
 
     def form_valid(self, form):
