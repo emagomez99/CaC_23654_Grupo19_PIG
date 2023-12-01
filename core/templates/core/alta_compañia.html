@@ -20,11 +20,11 @@ registro de Compañia
     <form method="post" action="{% url 'alta_compañia' %}" class="mx-auto w-50">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="id_nombre" class="form-label">Nombre</label>
+            <label for="id_nombre" class="form-label">Nombre:</label>
             {{ alta_compañia_form.nombre }}
         </div>
         <div class="mb-3">
-            <label for="id_ubicacion" class="form-label">Ubicación</label>
+            <label for="id_ubicacion" class="form-label">Ubicación:</label>
             {{ alta_compañia_form.ubicacion }}
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>

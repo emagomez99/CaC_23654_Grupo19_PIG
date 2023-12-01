@@ -21,7 +21,7 @@ registro de personajes
         <form method='post' action="{% url 'alta_personaje' %}">
             {% csrf_token %}
             <div class="mb-3">
-                <label for="id_nombre" class="form-label">Nombre</label>
+                <label for="id_nombre" class="form-label">Nombre:</label>
                 {{ alta_personaje_form.nombre }}
             </div>
             <div class="mb-3">
