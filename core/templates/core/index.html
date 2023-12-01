@@ -1,15 +1,30 @@
-<!-- RELACION DE HERENCIA ENTRE TEMPLATES -->
 {% extends "core/base.html" %}
 
-{% load static%}
+{% load static %}
 
-<!-- FILTRO APLICADO -->
-{% block title%}{% filter upper %}
-inicio
-{% endfilter %}{% endblock %}
+{% block title %}
+{% filter upper %}Inicio{% endfilter %}
+{% endblock %}
 
 {% block section_title %}
-{% filter upper %}
-inicio
-{% endfilter %}
+{% filter upper %}Inicio{% endfilter %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Bienvenido a nuestra tienda de figuras</h2>
+            <p>Descubre nuestra increíble colección de figuras coleccionables. Encuentra las últimas novedades y los
+                personajes más populares.</p>
+            {% if user.is_anonymous %}
+            <p>¡Inicia sesión para explorar nuestro catálogo completo!</p>
+            <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a>
+            {% endif %}
+        </div>
+        <div class="col-md-4">
+            <img src="{% static '/core/images/figuras.png' %}" alt="Figuras Coleccionables" class="img-fluid">
+        </div>
+    </div>
+</div>
 {% endblock %}
