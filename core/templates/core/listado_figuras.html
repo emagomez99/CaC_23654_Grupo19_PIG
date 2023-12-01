@@ -18,7 +18,7 @@ Listado de Figuras (por ID)
             <th scope="col">Denominación</th>
             <th scope="col">Personaje</th>
             <th scope="col">Coleccion</th>
-            <th scope="col">Compañía</th>
+            <th scope="col">Compañía/s</th>
             <th scope="col">Precio</th>
             <th scope="col">Operaciones</th>
             <!--  <th scope="col">Fecha de salida</th> -->
@@ -32,7 +32,12 @@ Listado de Figuras (por ID)
             <td>{{ figura.denominacion | title }}</td>
             <td>{{ figura.personaje | title }}</td>
             <td>{{ figura.coleccion | title }}</td>
-            <td>{{ figura.compañia | title }}</td>
+            <td>
+                {% for compañia in figura.compañias.all %}
+                {{ compañia.nombre }}
+                {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
             <td>{{ figura.precio | title }}</td>
             <!-- <td>{{ figura.fecha_salida | title }}</td> -->
             <!-- <td>{{ figura.imagen | title }}</td> -->
