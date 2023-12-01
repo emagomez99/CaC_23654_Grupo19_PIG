@@ -10,8 +10,13 @@ main {
     height: 100%;
 }
 
-footer {
-    background-color: lightskyblue
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    /* Puedes cambiar el color de fondo según tus preferencias */
+    padding: 10px 0;
 }
 
 .messages {
