@@ -24,4 +24,24 @@ main {
     padding: 25px;
 }
 
+
+/* Establece la altura y el ancho del carrusel al 100% */
+.carousel {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Establece la altura de los elementos dentro del carrusel al 100% */
+.carousel-item {
+    height: 100vh;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+}
+
 /* no anda, 01:29 clase 17: forms2 */

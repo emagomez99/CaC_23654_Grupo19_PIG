@@ -18,12 +18,33 @@
             <p>Descubre nuestra increíble colección de figuras coleccionables. Encuentra las últimas novedades y los
                 personajes más populares.</p>
             {% if user.is_anonymous %}
+            <br>
             <p>¡Inicia sesión para explorar nuestro catálogo completo!</p>
             <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión</a>
             {% endif %}
         </div>
         <div class="col-md-4">
-            <img src="{% static '/core/images/figuras.png' %}" alt="Figuras Coleccionables" class="img-fluid">
+            <!-- Carrusel de Bootstrap -->
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'core/images/figura1.png' %}" class="d-block w-100" alt="Figura 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'core/images/figura2.png' %}" class="d-block w-100" alt="Figura 2">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>
