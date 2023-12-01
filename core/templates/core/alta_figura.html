@@ -15,10 +15,12 @@ Alta de figura
 {% endfilter %}{% endblock %}
 
 {% block content %}
-<h3>Datos de la Figura</h3>
-<form method='post' action="{% url 'alta_figura' %}">
-    {% csrf_token %}
-    {{ alta_figura_form.as_p }}
-    <input type="submit">
-</form>
+<div class="container">
+    <h3 class="text-center">Datos de la Figura:</h3>
+    <form method="post" action="{% url 'alta_figura' %}" class="mx-auto w-50">
+        {% csrf_token %}
+        {{ alta_figura_form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
 {% endblock %}

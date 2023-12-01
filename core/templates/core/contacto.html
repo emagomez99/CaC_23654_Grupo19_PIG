@@ -15,9 +15,12 @@ contacto
 
 <!-- FORMULARIO ASOCIADO A UN TEMPLATE -->
 {% block content %}
-<form method="post" action="{% url 'contacto' %}">
-    {% csrf_token %}
-    {{ contacto_form.as_p }}
-    <input type="submit">
-</form>
+<div class="container">
+    <h3 class="text-center">Datos de la Figura:</h3>
+    <form method="post" action="{% url 'contacto' %}" class="mx-auto w-50">
+        {% csrf_token %}
+        {{ contacto_form.as_p }}
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
 {% endblock %}
