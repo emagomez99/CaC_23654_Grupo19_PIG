@@ -34,7 +34,7 @@ Listado de Figuras (por ID)
             <td>{{ figura.coleccion | title }}</td>
             <td>
                 {% for compañia in figura.compañias.all %}
-                {{ compañia.nombre }}
+                {{ compañia.nombre | title }}
                 {% if not forloop.last %}, {% endif %}
                 {% endfor %}
             </td>

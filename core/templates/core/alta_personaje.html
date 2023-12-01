@@ -9,7 +9,6 @@ alta personaje
 <link rel="stylesheet" href="{% static 'core/css/alta_figura.css' %}">
 {% endblock %}
 
-
 {% block section_title %}{% filter upper %}
 registro de personajes
 {% endfilter %}{% endblock %}
@@ -18,18 +17,17 @@ registro de personajes
 <div class="container">
     <h3 class="text-center">Datos del personaje:</h3>
     <form method="post" action="{% url 'alta_personaje' %}" class="mx-auto w-50">
-        <form method='post' action="{% url 'alta_personaje' %}">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label for="id_nombre" class="form-label">Nombre:</label>
-                {{ alta_personaje_form.nombre }}
-            </div>
-            <div class="mb-3">
-                <label for="id_ubicacion" class="form-label">Anime/Serie:</label>
-                {{ alta_personaje_form.anime }}
-            </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_nombre" class="form-label">Nombre:</label>
+            {{ alta_personaje_form.nombre }}
+        </div>
+        <div class="mb-3">
+            <label for="id_ubicacion" class="form-label">Anime/Serie:</label>
+            {{ alta_personaje_form.anime }}
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
 
-        </form>
+    </form>
 </div>
 {% endblock %}

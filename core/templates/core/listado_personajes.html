@@ -27,9 +27,6 @@ listado de personajes (por id)
             <td>{{ personaje.nombre | title }}</td>
             <td>{{ personaje.anime | title }}</td>
             <td>
-                <!-- Botón de Editar -->
-                <a href="" class="btn btn-primary btn-sm">Editar</a>
-
                 <!-- Botón de Eliminar -->
                 <form method="post" action="" style="display:inline;">
                     {% csrf_token %}
@@ -37,6 +34,8 @@ listado de personajes (por id)
                     <button type="submit" class="btn btn-danger btn-sm"
                         onclick="return confirm('¿Estás seguro?')">Eliminar</button>
                 </form>
+                <!-- Filtrar (vista parametrizada) -->
+                <a href="{% url 'listar_personajes' id=personaje.id %}">Filtrar</a>
             </td>
         </tr>
         {% empty %}
