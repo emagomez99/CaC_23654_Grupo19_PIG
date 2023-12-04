@@ -3,7 +3,7 @@ Proyecto de Codo a Codo, comisión 23654, grupo 19
 
 ## Descripción
 
-Sistema de gestión de figuritas.
+Sistema de gestión de figuras.
 
 ## Integrantes
 
